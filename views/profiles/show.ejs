@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>"<%= user.name %>'s" Profile</title>
+</head>
+<body>
+
+<h1><%= user.name %>'s Profile </h1>
+<%= user.name %>
+<p><b>
+<%= user.email %>
+</b>
+<p>
+
+
+
+
+<button><a href="http://localhost:8080/">Browse Page</a></button> 
+<form method="POST" action="/sessions?_method=DELETE">
+<input type="submit" value="Logout">
+
+
+
+</body>
+</html>
