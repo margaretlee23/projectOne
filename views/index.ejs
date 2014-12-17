@@ -7,24 +7,21 @@
 </head>
 <body>
 
-<select id="category">
+<form method="POST" action="/search">
+<select name="category" id="category">
 	<option>Category</option>
-	<option>Hairstylist</option>
-	<option>Makeup Artist</option>
-	<option>Manicurist</option>
+	<option value="Hairstylist">Hairstylist</option>
+	<option value="Makeup Artist">Makeup Artist</option>
+	<option value="Manicurst">Manicurist</option>
 	
 </select>
 
 <br>
 
-<select id="location">
+<select name="city" id="city">
 	<option>Location</option>
-	<option>San Francisco, CA</option>
+	<option value="San Francisco, CA">San Francisco, CA</option>
 </select>
-
-
-
-<!-- <img src="http://i884.photobucket.com/albums/ac46/curvygirlchic/CurvyGirlChicPlusSizeFashionBlog03-31-13092.jpg" width=300> -->
 
 
 <br>
@@ -32,6 +29,8 @@
 	<input type="submit" value="Search">
 
 <br>
+
+</form>
 
 <div id="search">
 <button><a href="/users/new">Join Now</a>

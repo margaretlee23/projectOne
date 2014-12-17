@@ -1,0 +1,28 @@
+SELECT * FROM users u 
+JOIN user_addresses ua ON ua.user_id == u.id
+
+
+CREATE TABLE users
+(id integer primary key,
+name text
+);
+
+
+CREATE TABLE user_addresses
+(user_id integer primary key,
+address text
+);
+
+CREATE TABLE user 
+(
+    id integer NOT NULL,
+    name text,
+    email text,
+    password text
+);
+
+ALTER TABLE address DROP COLUMN id;
+
+
+INSERT INTO address (user_id, id, address, city) VALUES 
+

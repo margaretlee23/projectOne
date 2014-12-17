@@ -9,8 +9,8 @@ var express 	 = require('express'),
 	methodOverride = require('method-override');
 
 
-var passport  = require('passport'),
-LocalStrategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy
+    passport  = require('passport');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -24,20 +24,25 @@ app.use(session({
   saveUninitialized: true
 }))
 
-var localStrategy = new LocalStrategy({usernameField: 'email'},
+var localStrategy = new LocalStrategy({
+  usernameField: 'email'
+
+  },
   function(email, password, done) {
-  
-  	db.query('SELECT * FROM users WHERE email = $1', [email], function(err, dbRes) {
-  		var user = dbRes.rows[0];
-  		// if (err) { 
-  		// 	return done(err); 
-  		// }
-  		// if (!user) { return done(null, false, { message: 'Unknown user ' + email }); }
-  		// if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
-  		return done(null, user);
-  	});
+  	console.log('log')
+    db.query('SELECT * FROM users WHERE email = $1', [email], function(err, dbRes) {
+     	var user = dbRes.rows[0];
+
+    	console.log(user);
+
+
+      if (err) { return done(err); }
+      if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+      if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
+      return done(null, user);
+    })
   }
-)
+);
 
 
 passport.serializeUser(function(user, done) {
@@ -45,9 +50,11 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  findById(id, function (err, user) {
-    done(err, user);
-  });
+	db.query('SELECT * FROM users WHERE id = $1', [id], function(err, dbRes) {
+		if (!err) {
+			done(err, dbRes.rows[0]);
+		}
+	});
 });
 
 passport.use(localStrategy);
@@ -60,12 +67,23 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.post('/search', function(req, res) {
+	db.query('SELECT * FROM users u JOIN address a ON a.user_id = u.id JOIN category c ON c.user_id = u.id WHERE c.category = $1 and a.city = $2', [req.body.category, req.body.city], function(err, dbRes) {
+		if (!err) {
+				console.log(dbRes.rows);
+				res.render('result', { users: dbRes.rows });
+			}
+		console.log(err);
+	});
+});
+
+
 app.get('/users/new', function(req, res) {
 	res.render('users/new');
 });
 
 app.post('/users', function(req, res) {
-	db.query('INSERT INTO users (name, email, password, address, city, phone, category) VALUES ($1, $2, $3, $4, $5, $6, $7)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city, req.body.phone, req.body.category], function(err, dbRes) {
+	db.query('INSERT INTO users (name, email, password, address, city, category) VALUES ($1, $2, $3, $4, $5, $6)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city, req.body.phone, req.body.category], function(err, dbRes) {
 			if (!err) {
 				res.redirect('/sessions/new');
 			}
@@ -78,8 +96,9 @@ app.get('/sessions/new', function(req, res) {
 
 
 app.post('/sessions', passport.authenticate('local', 
-  {failureRedirect: '/'}), function(req, res) {
-    res.redirect('/profiles/:id', { user: dbRes.rows[0] });
+  {failureRedirect: '/sessions/new'}), function(req, res) {
+    id = req.user.id
+    res.redirect('/profiles/' + id);
 });
 
 
