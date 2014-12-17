@@ -2,41 +2,48 @@
 <html>
 <head>
 	<title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   </head>
 </head>
 <body>
 
-<form method="POST" action="/search">
-<select name="category" id="category">
-	<option>Category</option>
-	<option value="Hairstylist">Hairstylist</option>
-	<option value="Makeup Artist">Makeup Artist</option>
-	<option value="Manicurst">Manicurist</option>
-	
-</select>
+<h1>Everyday style by everyday people.</h1>
+<h4>Find people in your area that can do hair, makeup and nails for a fraction of the cost of going to the salon.</h4>
 
-<br>
+<form class="form-inline" role="form" method="POST" action="/search">
+ 	<select class="form-control" name="category" id="category" style="width: 300px">
+ 	
+		<option>Category</option>	
+		<option value="Hairstylist">Hairstylist</option>
+		<option value="Makeup Artist">Makeup Artist</option>
+		<option value="Manicurst">Manicurist</option>
 
-<select name="city" id="city">
+	</select>
+
+
+<select class="form-control" name="city" id="city" style="width: 300px">>
 	<option>Location</option>
 	<option value="San Francisco, CA">San Francisco, CA</option>
 </select>
 
-
-<br>
-
-	<input type="submit" value="Search">
-
-<br>
-
+	<button type="submit" class="btn btn-default">Search</button>
 </form>
 
-<div id="search">
+
+
 <button><a href="/users/new">Join Now</a>
 <button><a href="/sessions/new">Log In</a>
 
-</div>
+
 
 </body>
 </html>

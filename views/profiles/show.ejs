@@ -81,11 +81,25 @@ Category: <%= user.category %>
     </div>
     <div id="map-canvas"></div>
 
+<nav> 
+<ul>
+  <% if (authUser) { %>
+    <li><a href="../profiles/<%= user.id %>/edit">Edit</a></li>
+  <% } %>
+
+  <li><button><a href="http://localhost:8080/">Home Page</a></button></li>
+  <li>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log out">
+    </form>
+  </li>
+</ul>
+</nav>
 
 
-<button><a href="http://localhost:8080/">Home Page</a></button> 
-<form method="POST" action="/sessions?_method=DELETE">
-<input type="submit" value="Logout">
+
+
+
 
 
 

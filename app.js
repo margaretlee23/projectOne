@@ -77,13 +77,25 @@ app.post('/search', function(req, res) {
 	});
 });
 
+app.get('/search', function(req,res) {
+	res.render('profiles/show');
+})
+
 
 app.get('/users/new', function(req, res) {
 	res.render('users/new');
 });
 
+
+
+app.post('/sessions', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
+
+
 app.post('/users', function(req, res) {
-	db.query('INSERT INTO users (name, email, password, address, city, category) VALUES ($1, $2, $3, $4, $5, $6)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city, req.body.phone, req.body.category], function(err, dbRes) {
+	db.query('INSERT INTO users (name, email, password, address, city, category) VALUES ($1, $2, $3, $4, $5, $6)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city, req.body.category], function(err, dbRes) {
 			if (!err) {
 				res.redirect('/sessions/new');
 			}
@@ -102,10 +114,6 @@ app.post('/sessions', passport.authenticate('local',
 });
 
 
-app.delete('/sessions', function(req, res) {
-	req.logout();
-	res.redirect('/');
-});
 
 
 // app.get('/profiles', function(req, res) {
@@ -117,29 +125,42 @@ app.delete('/sessions', function(req, res) {
 app.get('/profiles/:id', function(req, res) {
 	db.query('SELECT * FROM users WHERE id = $1', [req.params.id], function(err, dbRes) {
 		if (!err) {
-			res.render('profiles/show', { user: dbRes.rows[0] });
+			res.render('profiles/show', { user: dbRes.rows[0],
+			                              authUser: req.user });
 		}
 	});
 });
 
-// app.get('/posts/:id/edit', function(req, res) {
-// 	db.query('SELECT * FROM posts WHERE id = $1', [req.params.id], function(err, dbRes) {
+
+
+
+
+
+
+  // confirm that :id is the same as req.user.id
+  // next();
+  // else redirect to login
+
+app.get('/profiles/:id/edit', function(req, res) {
+	res.send(req.params.id)
+	// db.query('SELECT * FROM users WHERE id = $1', [req.params.id], function(err, dbRes) {
+	// 	if (!err) {
+	// 		res.render('profiles/edit', { users: dbRes.rows[0] });
+	// 	}
+	// });
+});
+
+// app.patch('/profiles/:id', function(req, res) {
+// 	db.query('UPDATE profiles SET title = $1, body = $2 WHERE id = $3', [req.body.title, req.body.body, req.params.id], function(err, dbRes) {
 // 		if (!err) {
-// 			res.render('posts/edit', { post: dbRes.rows[0] });
+// 			res.redirect('/profiles/' + req.params.id);
 // 		}
 // 	});
 // });
 
-// app.patch('/posts/:id', function(req, res) {
-// 	db.query('UPDATE posts SET title = $1, body = $2 WHERE id = $3', [req.body.title, req.body.body, req.params.id], function(err, dbRes) {
-// 		if (!err) {
-// 			res.redirect('/posts/' + req.params.id);
-// 		}
-// 	});
-// });
 
 app.delete('/profiles/:id', function(req, res) {
-	db.query('DELETE FROM posts WHERE id = $1', [req.params.id], function(err, dbRes) {
+	db.query('DELETE FROM profiles WHERE id = $1', [req.params.id], function(err, dbRes) {
 		if (!err) {
 			res.redirect('/profiles');
 		}
