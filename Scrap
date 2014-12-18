@@ -30,14 +30,7 @@ db.query('SELECT * FROM users u JOIN address a ON a.user_id = u.id JOIN category
 		if (!err) {
 				console.log(dbRes.rows);
 
+navbar-btn 
 
 
- user_id |                  address                  |       city        
----------+-------------------------------------------+-------------------
-       2 | 1845 Stockton St. San Francisco, CA 94133 | San Francisco, CA
-       3 | 2002 Pierce St. San Francisco, CA 94115   | San Francisco, CA
-       4 | 225 Bush St. San Francisco, CA 94104      | San Francisco, CA
-       1 | 2006 Green St. San Francisco, CA 94123    | San Francisco, CA
-       5 | 2099 Folsom St. San Francisco, CA 94110   | San Francisco,CA
-       6 | 1676 Union St. San Francisco, CA 94123    | San Francisco, CA
 

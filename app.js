@@ -91,14 +91,12 @@ app.get('/users/new', function(req, res) {
 
 
 app.post('/users', function(req, res) {
-	db.query('INSERT INTO users (name, email, password, address, city, category) VALUES ($1, $2, $3, $4, $5, $6)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city, req.body.category], function(err, dbRes) {
+	db.query('INSERT INTO users (name, email, password, address, city) VALUES ($1, $2, $3, $4, $5)', [req.body.name, req.body.email, req.body.password, req.body.address, req.body.city], function(err, dbRes) {
 			if (!err) {
 				res.redirect('/sessions/new');
 			}
 	});
 });
-
-
 
 
 app.get('/sessions/new', function(req, res) {

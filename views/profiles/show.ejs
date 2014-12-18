@@ -106,7 +106,7 @@ City: <%= user.city %>
 <nav> 
 <ul>
   <% if (authUser) { %>
-    <li><a href="../profiles/<%= user.id %>/edit">Edit</a></li>
+    <a href="../profiles/<%= user.id %>/edit">Edit</a>
      <form action="/sessions?_method=DELETE" method="POST">
       <input type="submit" value="Log out">
     </form>
@@ -114,7 +114,7 @@ City: <%= user.city %>
 
   <br>
   <button><a href="http://localhost:8080/">Home Page</a></button>
-  
+
 
   <!--   <form action="/sessions?_method=DELETE" method="POST">
       <input type="submit" value="Log out">

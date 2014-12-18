@@ -1,4 +1,18 @@
-h4	{
+/*h4	{
 	color: red;
 }
 
+*/
+
+#logo {
+	padding-left: 50px;
+}
+
+#login {
+	padding-left: 50px;
+
+}
+
+#joinNow {
+	padding-left: 100px;	
+}
