@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit <%= user.name %></title>
+</head>
+<body>
+
+
+
+	<h1>Edit <%= user.name %>'s Profile</h1>
+	<form action="/profiles/<%= user.id %>?_method=PATCH" method="POST">
+		<input type="text" name="name" value="<%= user.name %>">
+		<input type="text" name="email" value="<%= user.email %>">
+		<input type="text" name="password" value="<%= user.password %>">
+		<input type="text" name="address" value="<%= user.address %>">
+		<input type="text" name="city" value="<%= user.city %>">
+		<input type="submit">
+
+
+  
+	</form>
+</body>
+</html>

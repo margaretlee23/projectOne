@@ -19,9 +19,13 @@
 
 </head>
 <body>
+
+<h2>Results:</h2>
+
+
 	<% for(var i = 0; i<users.length; i++) { %>
 		<ul>
-		<a href=""><li><%= users[i].name%></li></a>
+		<a href="/profiles/<%= users[i].id %>"><li><%= users[i].name%></li></a>
 		</ul>
 		<!-- <img src="<%=users[i].images%>" width="200px"> -->
 	<% } %>

@@ -12,12 +12,18 @@
 <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+	<link rel="stylesheet" href="/stylesheets/style.css"/>
+
   </head>
 </head>
 <body>
 
-<h1>Everyday style by everyday people.</h1>
-<h4>Find people in your area that can do hair, makeup and nails for a fraction of the cost of going to the salon.</h4>
+<div class="jumbotron">
+  <div class="container">
+
+
+<h1>Everyday style by everyday people</h1>
+<h4>Find people in your area that can do hair, makeup and nails for a fraction of the cost of going to the salon</h4>
 
 <form class="form-inline" role="form" method="POST" action="/search">
  	<select class="form-control" name="category" id="category" style="width: 300px">
@@ -25,7 +31,7 @@
 		<option>Category</option>	
 		<option value="Hairstylist">Hairstylist</option>
 		<option value="Makeup Artist">Makeup Artist</option>
-		<option value="Manicurst">Manicurist</option>
+		<option value="Manicurist">Manicurist</option>
 
 	</select>
 
@@ -40,10 +46,13 @@
 
 
 
-<button><a href="/users/new">Join Now</a>
-<button><a href="/sessions/new">Log In</a>
+<button type="button" class="btn btn-default navbar-btn"><a href="/users/new">Join Now</a></button>
 
 
+<button type="button" class="btn btn-default navbar-btn"><a href="/sessions/new">Log In</a>
+
+ </div>
+</div>
 
 </body>
 </html>
