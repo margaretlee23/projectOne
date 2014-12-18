@@ -16,40 +16,75 @@
 
 <h1>Join Now</h1>
 
-<form role="form" method="POST" action="/users">
+<!-- Form for posting new user account info with boostrap -->
+<form class="form-horizontal" role="form" method="POST" action="/users">
 
 	<div class="form-group">
-	<label class="col-sm-2 control-label" for="Name">Name</label>
-		<input class="form-control" id="name" type="text" id="name" placeholder="Name" name="name">
+	<label for="inputName3" class="col-sm-2 control-label">Name</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputName3" placeholder="Name" name="name">
+	</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="Email">Email Address</label>
-		<input class="form-control" id="email" type="text" placeholder="Email Address" name="email">
+	<label for="inputEmail3" class="col-sm-2 control-label">Email Address</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+	</div>
+	</div>
+
+
+	<div class="form-group">
+	<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+	</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="Password">Password</label>
-		<input class="form-control" id="email" type="password" placeholder="Create a Password" name="password">
+	<label for="inputAddress3" class="col-sm-2 control-label">Address</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputAddress3" placeholder="Address" name="address">
+	</div>
 	</div>
 
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="Address">Address</label>
-		<input class="form-control" id="address" type="text" placeholder="Address" name="address">
+	<label for="inputCity3" class="col-sm-2 control-label">City</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputCity3" placeholder="City" name="city">
+	</div>
 	</div>
 
-	<div class="form-group">
-		<label class="col-sm-2 control-label" for="City">City</label>
-		<input class="form-control" id="address"type="text" placeholder="City" name="city">
-	</div>
 
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="Category">Category</label>
-		<input class="form-control" type="text" placeholder="Hairstylist, Makeup Artist or Manicurist" name="category">
+	<label for="inputCategory3" class="col-sm-2 control-label">Category</label>
+	<div class="col-sm-8">
+		<input type="text" class="form-control" id="inputCategory3" placeholder="Category" name="category">
+	</div>
 	</div>
 
 	
-		<input type="submit" value="Sign Up">
+<!-- Submit button with bootstrap -->
+		<div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+
+		<div class="form-group">
+    <div class="col-sm-offset-0 col-sm-10">
+      <button type="submit" class="btn btn-default">Join Now</button>
+    </div>
+  </div>
+
+
+<!-- Link to homepage with bootstrap -->
+		<div class="form-group">
+    	<div class="col-sm-offset-6 col-sm-6">
+
+	<div class="form-group">
+    	<div class="col-sm-offset-0 col-sm-10">
+      	<button type="submit" class="btn btn-default"><a href="http://localhost:8080/">Home Page</button>
+    	</div>
+  	</div>
+
 
 </body>
 </html>

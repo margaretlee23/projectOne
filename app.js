@@ -14,6 +14,7 @@ var LocalStrategy = require('passport-local').Strategy
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.use(bodyParser.json());
@@ -24,6 +25,7 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(methodOverride('_method'));
+
 
 var localStrategy = new LocalStrategy({
   usernameField: 'email'
