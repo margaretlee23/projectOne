@@ -14,7 +14,7 @@ var LocalStrategy = require('passport-local').Strategy
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(__dirname + '/public'));
+
 
 
 app.use(bodyParser.json());
@@ -99,6 +99,8 @@ app.post('/users', function(req, res) {
 });
 
 
+
+
 app.get('/sessions/new', function(req, res) {
 	res.render('sessions/new');
 });
@@ -162,6 +164,6 @@ app.patch('/profiles/:id', function(req, res) {
 // });
 
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function() {
   console.log('Server up!');
 });
