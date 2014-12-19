@@ -32,5 +32,31 @@ db.query('SELECT * FROM users u JOIN address a ON a.user_id = u.id JOIN category
 
 navbar-btn 
 
+  3 | Cat   | cat@yahoo.com   | top      | 2002 Pierce St. San Francisco, CA 94115   | San Francisco, CA
+  4 | Row   | row@yahoo.com   | shop     | 225 Bush St. San Francisco, CA 94104      | San Francisco, CA
+  5 | Annie | annie@yahoo.com | two      | 2099 Folsom St. San Francisco, CA 94110   | San Francisco, CA
+  2 | Tom   | tom@gmail.com   | box      | 1845 Stockton St. San Francisco, CA 94133 | San Francisco, CA
+  7 | Kathy  | kathy@gmail.com | abc      | 898 Fell St. San Francisco, CA 94117      | San Francisco, CA
+  1 | Kelly | kelly@gmail.com | abc      | 2006 Green St. San Francisco, CA 94123    | San Francisco, CA
+
+   user_id |   category    |                                        images                                         
+---------+---------------+---------------------------------------------------------------------------------------
+       1 | Hairstylist   | http://careerbear.com/wp-content/uploads/2011/11/114360558-594x335.jpg
+       2 | Makeup Artist | http://www.qcmakeupacademy.com/wp-content/uploads/2013/08/pro-makeup-artist-2.jpg
+       3 | Manicurist    | http://www.savcusa.com/images/SAVCNails475.jpg
+       4 | Hairstylist   | http://stylenoted.com/wp-content/uploads/2013/09/career-descriptions-hairstylist1.jpg
+       5 | Makeup Artist | http://www.qcmakeupacademy.com/wp-content/uploads/2013/08/pro-makeup-artist-2.jpg
+       6 | Manicurist    | http://images.beautyriot.com/photos/275/secrets-from-a-celeb-manicurist-thumb-275.jpg
+  
+
+
+
+
+
+
+
+
+
+
 
 
